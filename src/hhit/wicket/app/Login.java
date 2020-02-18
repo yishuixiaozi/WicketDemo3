@@ -57,7 +57,7 @@ public class Login extends WebPage{
 			System.out.println(passwordField.getValue());
 			
 			//这里准备传递值到主界面，或者失败界面
-			if(usernameField.getValue().equals("zxr")&&passwordField.getValue().equals("123456")) {
+			if(authenticate(usernameField.getValue(),passwordField.getValue())) {
 				//进入都主界面
 				//  1 MainPage mainPage = new MainPage();
 				//  1 mainPage.setUsername(usernameField.getValue());
@@ -73,5 +73,14 @@ public class Login extends WebPage{
 			}
 			
 		}
+		
+		public final boolean authenticate (final String username,final String password) {
+			if(username.equals("zxr")&&password.equals("123456")) {
+				return true;
+			}else {
+				return false;
+			}
+		}
+		
 	}
 }

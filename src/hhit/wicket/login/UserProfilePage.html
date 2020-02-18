@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form wicket:id="userProfile">
+       用户名： <input type="text" wicket:id="name"/><br/>
+       地  址： <input type="text" wicket:id="address"/><br/>
+       城  市： <input type="text" wicket:id="city"/><br/>
+       国  家： <select wicket:id="country">
+		          <option>印度</option>
+		          <option>美国</option>
+		          <option>日本</option>
+         		</select><br/>
+       Pin <input type="text" wicket:id="pin"/><br/>
+       <hr/>
+       <input type="submit" value="保存"/>
+    </form>
+</body>
+</html>

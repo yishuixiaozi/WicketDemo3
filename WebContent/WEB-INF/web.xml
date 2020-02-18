@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>WicketDemo3</display-name>
+  <!-- 这里用的是filter，也可以用servlet，但是filter可以实现更加强大的功能 -->
+  
+   <filter>
+        <filter-name>LoginApplication</filter-name>
+        <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+        <init-param>
+            <param-name>applicationClassName</param-name>
+            <param-value>hhit.wicket.app.LoginApplication</param-value>
+        </init-param>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>LoginApplication</filter-name>
+        <url-pattern>/hello/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping>
+    
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+</web-app>

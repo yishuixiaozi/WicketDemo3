@@ -4,7 +4,9 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -14,10 +16,13 @@ import hhit.wicket.main.MainPage;
 import hhit.wicket.register.RegisterPage;
 
 public class Login extends WebPage{
-	
+	//用户名：输入文本框
 	private TextField usernameField;
+	//用户密码：输入密码框
 	private PasswordTextField passwordField;
-	// 
+	//回馈信息
+	private FeedbackPanel feedback;
+	
 	public Login() {
 		super();		
 		LoginBean loginBean = new LoginBean();
@@ -26,11 +31,19 @@ public class Login extends WebPage{
 		Form form = new LoginForm("loginForm",userModel);
 		add(form);
 		
+		// 用户名  和 用户密码
 		usernameField = new TextField("username");
 	    passwordField = new PasswordTextField("password");
-
+	    feedback      = new FeedbackPanel("feedback");
+	    
+	    //添加图片资源
+	    add(new Image("flower", "flower.jpg"));
+	    add(new Image("jiaju","jiaju1.jpg"));
+	    add(new Image("govIcon","govIcon.gif"));
+	    
 		form.add(usernameField);
 		form.add(passwordField);
+		add(feedback);
 		
 		//前往注册页面，点击这个之后
 		form.add(new Link<String>("registerPage") {
@@ -70,6 +83,10 @@ public class Login extends WebPage{
 			}else {
 				//进入到失败界面，或者登陆界面弹窗提示错误
 				System.out.println("输入的用户名或者密码不对");
+				// 2020.2.19.14 feedbackpanel的使用
+				String errMsg = getLocalizer().getString("login.errors.invalidCredentials", this,"用户名或者密码不正确");
+				// 注册信息到控件
+				error(errMsg);
 			}
 			
 		}

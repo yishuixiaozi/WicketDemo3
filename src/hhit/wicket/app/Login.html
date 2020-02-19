@@ -4,7 +4,13 @@
 <meta charset="UTF-8">
 <title>XXX登陆页面</title>
 <!-- 常规页面经常使用的js和CSS的引入方式 -->
-
+<!--
+response.renderJavaScriptReference(new IBOPacakgeResourceReference(Login.class,"login.css"))
+response.renderCSSReference(new IBOPacakgeResourceReference(Login.class,"login.js"))
+  -->
+<wicket:linK>
+<link rel="stylesheet" href="login.css" type="text/css"/>
+</wicket:linK>
 </head>
 <body>
 <div class="header">
@@ -25,16 +31,17 @@
 
 <div class="body_top">
     <div class="inner_body">
-        <p><img src="images/flower.jpg"/></p>
-        <p class="p_id1"></p>
+        <p><img wicket:id="flower"/></p>
+        <p class="p_id1">Welcome</p>
     </div>
 </div>
 <div class="body_center">
     <div class="inner_body2">
         <div class="bc_left">
-            <img src="images/jiaju1.jpg">
+            <img wicket:id="jiaju">
         </div>
         <div class="bc_right">
+        	<span wicket:id = "feedback">这里输出回馈信息</span>
             <p></p>
             <form  method="post" wicket:id="loginForm">
                 <input type="text" class="name_input" wicket:id="username"  for="reservation" placeholder="注册邮箱/用户名">
@@ -53,7 +60,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;ICPXX
                 备XXXXXXXX号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 增值电信业务经营许可证：&nbsp;&nbsp;XXXXXXXXXXX</p>
-            <p class="p_r"><img src="images/govIcon.gif" alt=""></p>
+            <p class="p_r"><img wicket:id="govIcon" alt=""></p>
             <!--<p>免责声明：本网站设计用于理论学习</p>-->
         </div>
     </div>

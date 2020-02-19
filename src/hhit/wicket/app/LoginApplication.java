@@ -11,6 +11,5 @@ public class LoginApplication extends WebApplication{
 	public Class<? extends Page> getHomePage() {
 		// TODO Auto-generated method stub
 		return Login.class;
-		//return UserProfilePage.class;
 	}
 }

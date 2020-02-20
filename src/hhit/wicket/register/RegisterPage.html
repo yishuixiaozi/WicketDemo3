@@ -5,8 +5,11 @@
 <title>注册页面</title>
 </head>
 <body>
+	<span wicket:id="feedback">信息回馈</span>
 	<form wicket:id="userProfile">
        用户名： <input type="text" wicket:id="name"/><br/>
+       密  码：<input type="password" wicket:id="password"><br/>
+       密码确认：<input type="password" wicket:id="confirmpassword" ><br/>
        地  址： <input type="text" wicket:id="address"/><br/>
        城  市： <input type="text" wicket:id="city"/><br/>
        国  家： <select wicket:id="country">

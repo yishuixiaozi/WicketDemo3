@@ -22,6 +22,7 @@ public class Login extends WebPage{
 	private PasswordTextField passwordField;
 	//回馈信息
 	private FeedbackPanel feedback;
+	//properties的读取
 	
 	public Login() {
 		super();		
@@ -84,7 +85,10 @@ public class Login extends WebPage{
 				//进入到失败界面，或者登陆界面弹窗提示错误
 				System.out.println("输入的用户名或者密码不对");
 				// 2020.2.19.14 feedbackpanel的使用
-				String errMsg = getLocalizer().getString("login.errors.invalidCredentials", this,"用户名或者密码不正确");
+				//String errMsg = getLocalizer().getString("login.errors.invalidCredentials", this,"用户名或者密码不正确");
+				
+				// 使用properties文件信息
+				String errMsg = getLocalizer().getString("login.errors.invalidCredentials", this);
 				// 注册信息到控件
 				error(errMsg);
 			}

@@ -5,6 +5,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.image.Image;
+import org.apache.wicket.markup.html.include.Include;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -40,11 +41,16 @@ public class Login extends WebPage{
 	    //添加图片资源
 	    add(new Image("flower", "flower.jpg"));
 	    add(new Image("jiaju","jiaju1.jpg"));
-	    add(new Image("govIcon","govIcon.gif"));
+	    //add(new Image("govIcon","govIcon.gif"));
 	    
 		form.add(usernameField);
 		form.add(passwordField);
 		add(feedback);
+		
+		// 测试include内容,失败
+		// add(new Include("footer", "IncludeFooter.html"));
+		// 添加panel成功
+		add(new IncludeFooter("panel"));
 		
 		//前往注册页面，点击这个之后
 		form.add(new Link<String>("registerPage") {

@@ -11,11 +11,18 @@ response.renderCSSReference(new IBOPacakgeResourceReference(Login.class,"login.j
 <wicket:linK>
 <link rel="stylesheet" href="login.css" type="text/css"/>
 </wicket:linK>
+
+<script type="text/javascript">
+	function foo(){
+		alert("Hello,World!");
+	}
+</script>
+
 </head>
 <body>
 <div class="header">
     <div class="inner_c">
-        <div class="header_left">Design By Zhou</div>
+        <div class="header_left"><wicket:message key="page.designer"></wicket:message></div>
         <div class="header_right">
             <div class="hri_left">
                 <ul>
@@ -24,7 +31,9 @@ response.renderCSSReference(new IBOPacakgeResourceReference(Login.class,"login.j
                     <li>公司合作&nbsp;&nbsp;|</li>
                 </ul>
             </div>
-            <div class="hri_right">咨询热线：</div>
+            <div class="hri_right">
+					<a href="#" onclick="foo();">咨询热线</a> 		
+            </div>
         </div>
     </div>
 </div>
@@ -52,18 +61,7 @@ response.renderCSSReference(new IBOPacakgeResourceReference(Login.class,"login.j
         </div>
     </div>
 </div>
-<div class="bottom">
-    <div class="inner_bottom">
-        <div class="bottom1">
-            <p class="p_l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copyright &copy;
-                2004-2014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXXXXX（Decorating &nbsp;&nbsp;Houses）
-                &nbsp;&nbsp;&nbsp;&nbsp;ICPXX
-                备XXXXXXXX号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                增值电信业务经营许可证：&nbsp;&nbsp;XXXXXXXXXXX</p>
-            <p class="p_r"><img wicket:id="govIcon" alt=""></p>
-            <!--<p>免责声明：本网站设计用于理论学习</p>-->
-        </div>
-    </div>
-</div>
+ <span wicket:id="panel">底部pannel加载</span>
+
 </body>
 </html>
